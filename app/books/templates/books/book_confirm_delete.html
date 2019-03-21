@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load static i18n %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans 'Book' %}: {% trans 'Delete' %}{% endblock %}
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+    <form method="post" action="{% url 'books:book_delete' book.isbn %}">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <p>{% trans 'Are you sure you want to delete the book?' %}</p>
+        <button type="submit" class="btn btn-primary">{% trans 'Yes, delete' %}</button>
+    </form>
+{% endblock %}
+

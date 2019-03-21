@@ -1,0 +1,124 @@
+[
+  {
+    "model": "books.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "Mark",
+      "last_name": "Twain",
+      "date_of_birth": "1835-11-30"
+    }
+  },
+  {
+    "model": "books.author",
+    "pk": 2,
+    "fields": {
+      "first_name": "George",
+      "last_name": "Orwell",
+      "date_of_birth": "1903-06-25"
+    }
+  },
+  {
+    "model": "books.author",
+    "pk": 3,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Steinbeck",
+      "date_of_birth": "1902-02-27"
+    }
+  },
+  {
+    "model": "books.author",
+    "pk": 4,
+    "fields": {
+      "first_name": "Luciano",
+      "last_name": "Ramalho",
+      "date_of_birth": null
+    }
+  },
+  {
+    "model": "books.publisher",
+    "pk": 1,
+    "fields": {
+      "name": "Signet Classic"
+    }
+  },
+  {
+    "model": "books.publisher",
+    "pk": 2,
+    "fields": {
+      "name": "Penguin Classics"
+    }
+  },
+  {
+    "model": "books.publisher",
+    "pk": 3,
+    "fields": {
+      "name": "O'Reilly Media"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "isbn": "0143039563",
+      "title": "The Adventures of Tom Sawyer",
+      "publisher": 2,
+      "author": 1,
+      "pages": 272,
+      "created_at": "2019-03-21T06:26:26.141Z",
+      "updated_at": "2019-03-21T06:26:26.141Z"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+      "isbn": "9780451524935",
+      "title": "Nineteen Eighty-Four",
+      "publisher": 1,
+      "author": 2,
+      "pages": 272,
+      "created_at": "2019-03-21T06:27:29.758Z",
+      "updated_at": "2019-03-21T06:27:29.758Z"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "isbn": "9781986167727",
+      "title": "Adventures of Huckleberry Finn",
+      "publisher": 2,
+      "author": 1,
+      "pages": 400,
+      "created_at": "2019-03-21T07:38:40.597Z",
+      "updated_at": "2019-03-21T07:38:40.597Z"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "isbn": "0143039431",
+      "title": "The Grapes of Wrath",
+      "publisher": 2,
+      "author": 3,
+      "pages": 464,
+      "created_at": "2019-03-21T07:40:36.077Z",
+      "updated_at": "2019-03-21T07:40:36.077Z"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "isbn": "1491946008",
+      "title": "Fluent Python",
+      "publisher": 3,
+      "author": 4,
+      "pages": 792,
+      "created_at": "2019-03-21T07:43:37.434Z",
+      "updated_at": "2019-03-21T07:43:37.434Z"
+    }
+  }
+]

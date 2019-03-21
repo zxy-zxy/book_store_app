@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <table class="table table-stripped">
+        <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in book_list %}
+            <tr>
+                <td>
+                    <a href="{{ book.get_absolute_url }}">{{ book.isbn }}</a>
+                </td>
+                <td>
+                    {{ book.title }}
+                </td>
+                <td>
+                    {{ book.publisher }}
+                </td>
+                <td>
+                    {{ book.author }}
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="6"><a href="{% url 'books:book_create' %}">Add new book</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    {% include 'includes/pagination.html' %}
+{% endblock %}
