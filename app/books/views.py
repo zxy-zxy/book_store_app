@@ -76,7 +76,9 @@ class BookUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context_data = super(BookUpdateView, self).get_context_data()
-        context_data['action_url'] = reverse_lazy('books:book_update', kwargs={'isbn': self.kwargs['isbn']})
+        context_data['action_url'] = reverse_lazy(
+            'books:book_update', kwargs={'isbn': self.kwargs['isbn']}
+        )
         context_data['action_text'] = 'Update'
         return context_data
 

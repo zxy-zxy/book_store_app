@@ -9,45 +9,105 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
             name='Author',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=64, verbose_name='First name')),
-                ('last_name', models.CharField(max_length=64, verbose_name='Last name')),
-                ('date_of_birth', models.DateField(blank=True, null=True, verbose_name='Date of birth')),
+                (
+                    'id',
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'first_name',
+                    models.CharField(max_length=64, verbose_name='First name'),
+                ),
+                (
+                    'last_name',
+                    models.CharField(max_length=64, verbose_name='Last name'),
+                ),
+                (
+                    'date_of_birth',
+                    models.DateField(
+                        blank=True, null=True, verbose_name='Date of birth'
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
             name='Book',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('isbn', models.CharField(max_length=13, unique=True, validators=[django.core.validators.RegexValidator('^[\\d-]+$', message='Only digits and hyphen are allowed.')], verbose_name='ISBN')),
+                (
+                    'id',
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'isbn',
+                    models.CharField(
+                        max_length=13,
+                        unique=True,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                '^[\\d-]+$',
+                                message='Only digits and hyphen are allowed.',
+                            )
+                        ],
+                        verbose_name='ISBN',
+                    ),
+                ),
                 ('title', models.CharField(max_length=128, verbose_name='Title')),
                 ('pages', models.IntegerField(default=0, verbose_name='Pages')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='books', to='books.Author')),
+                (
+                    'author',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name='books',
+                        to='books.Author',
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
             name='Publisher',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=64, unique=True, verbose_name='Name')),
+                (
+                    'id',
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'name',
+                    models.CharField(max_length=64, unique=True, verbose_name='Name'),
+                ),
             ],
         ),
         migrations.AddField(
             model_name='book',
             name='publisher',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='books', to='books.Publisher'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='books',
+                to='books.Publisher',
+            ),
         ),
         migrations.AlterUniqueTogether(
-            name='author',
-            unique_together={('first_name', 'last_name')},
+            name='author', unique_together={('first_name', 'last_name')}
         ),
     ]

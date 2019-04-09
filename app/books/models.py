@@ -26,12 +26,6 @@ class Publisher(models.Model):
         return self.name
 
 
-def validate_isbn(value):
-    if Book.objects.filter(isbn=value).exists():
-        raise ValidationError(f'Book with ISBN {value} already exists.')
-    return value
-
-
 class Book(models.Model):
     isbn = models.CharField(
         _('ISBN'),
@@ -55,7 +49,7 @@ class Book(models.Model):
     objects = BooksManager()
 
     def __str__(self):
-        return self.title
+        return f'{self.title}, ISBN: {self.isbn} by {self.author}'
 
     def get_absolute_url(self):
         return reverse('books:book_detail', kwargs={'isbn': self.isbn})

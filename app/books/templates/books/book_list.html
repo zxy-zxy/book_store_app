@@ -36,3 +36,121 @@
 
     {% include 'includes/pagination.html' %}
 {% endblock %}
+
+
+
+
+
+b'\n\n\n<!DOCTYPE html>\n
+<html lang="en">\n
+<head>\n
+    <meta charset="UTF-8">
+    \n \n \n    <!-- Latest compiled and minified CSS -->\n\n
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" \n
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    \n\n    <!-- Optional theme -->\n
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" \n
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    \n\n
+    <link rel="stylesheet" href="/static/css/app.css">
+    \n\n <title>Book</title>\n\n
+</head>
+\n
+<body>\n
+<nav class="navbar navbar-default">\n
+    <div class="container-fluid">\n
+        <div class="navbar-header">\n
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" \n
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">\n <span class="sr-only">Toggle navigation</span>\n
+                <span class="icon-bar"></span>\n <span class="icon-bar"></span>\n <span class="icon-bar"></span>\n
+            </button>
+            \n <a class="navbar-brand" href="/">Book store</a>\n
+        </div>
+        \n
+        <form id=\'navbar-search-form\' class="navbar-form navbar-left" action="/books/search/" method="GET">\n
+            <div class="form-group">\n <input class="form-control" type="text" name="q" placeholder="Your search"
+                                              value="">\n <input class="btn btn-default" type="submit" value="Search">\n
+            </div>
+            \n
+        </form>
+        \n\n
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\n
+            <ul class="nav navbar-nav navbar-right">\n
+                <li class="dropdown">\n \n <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                              aria-haspopup="true" \n aria-expanded="false">Account <span
+                        class="caret"></span></a>\n
+                    <ul class="dropdown-menu">\n
+                        <li><a href="/accounts/logout/">Logout</a></li>
+                        \n
+                    </ul>
+                    \n
+                </li>
+                \n \n
+            </ul>
+            \n
+        </div><!-- /.navbar-collapse -->\n
+    </div><!-- /.container-fluid -->\n
+</nav>
+\n\n\n</nav>\n\n
+<div class="container">\n \n
+    <div class="alert alert-danger alert-dismissible" role="alert">\n
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">\n <span
+                aria-hidden="true">&times;</span>\n
+        </button>
+        \n The creation has failed.\n
+    </div>
+    \n\n \n\n
+    <form method="post" action="/books/create/">\n <input type="hidden" name="csrfmiddlewaretoken"
+                                                          value="0moRw8dhjzuaqfklORf8vgCffmNvxhn01rQDI26gfRXSID8G5VQwediTcc7H73vY">\n
+        \n\n
+        <div id="div_id_isbn" class="form-group"><label for="id_isbn" class="control-label  requiredField">\n ISBN<span
+                class="asteriskField">*</span> </label>
+            <div class="controls "><input type="text" name="isbn" value="123456" maxlength="13"
+                                          class="textinput textInput form-control" required id="id_isbn"></div>
+        </div>
+        <div id="div_id_title" class="form-group"><label for="id_title" class="control-label  requiredField">\n
+            Title<span class="asteriskField">*</span> </label>
+            <div class="controls "><input type="text" name="title" value="test book" maxlength="128"
+                                          class="textinput textInput form-control" required id="id_title"></div>
+        </div>
+        <div id="div_id_author" class="form-group has-error"><label for="id_author"
+                                                                    class="control-label  requiredField">\n Author<span
+                class="asteriskField">*</span> </label>
+            <div class="controls "><select name="author" class="select form-control form-control-danger" required
+                                           id="id_author">
+                <option value="" selected>---------</option>
+                \n\n</select>
+                <p id="error_1_id_author" class="help-block"><strong>This field is required.</strong></p></div>
+        </div>
+        <div id="div_id_publisher" class="form-group has-error"><label for="id_publisher"
+                                                                       class="control-label  requiredField">\n Publisher<span
+                class="asteriskField">*</span> </label>
+            <div class="controls "><select name="publisher" class="select form-control form-control-danger" required
+                                           id="id_publisher">
+                <option value="" selected>---------</option>
+                \n\n</select>
+                <p id="error_1_id_publisher" class="help-block"><strong>This field is required.</strong></p></div>
+        </div>
+        <div id="div_id_pages" class="form-group"><label for="id_pages" class="control-label  requiredField">\n
+            Pages<span class="asteriskField">*</span> </label>
+            <div class="controls "><input type="number" name="pages" value="100" class="numberinput form-control"
+                                          required id="id_pages"></div>
+        </div>
+        \n\n
+        <button type="submit" class="btn btn-primary">\n Create\n</button>
+        \n
+    </form>
+    \n\n\n
+</div>
+\n\n
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+\n\n<!-- Latest compiled and minified JavaScript -->\n
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" \n
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" \n
+        crossorigin="anonymous"></script>
+\n\n\n\n
+</body>
+'
+
+
+
