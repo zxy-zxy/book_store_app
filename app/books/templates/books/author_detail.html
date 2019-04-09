@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title %} {{ author.first_name }} {{ author.last_name }}{% endblock %}
+
+{% block content %}
+
+    <h3>Author&apos; s information</h3>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <dt>First name:</dt>
+            <dd>{{ author.first_name }}</dd>
+            <dt>Last name:</dt>
+            <dd>{{ author.last_name }}</dd>
+            <dt>Date of birth:</dt>
+            <dd>{{ author.date_of_birth|date:'Y F d' }}</dd>
+        </div>
+    </div>
+
+{% endblock %}
+

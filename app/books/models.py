@@ -17,12 +17,18 @@ class Author(models.Model):
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
+    def get_absolute_url(self):
+        return reverse('books:author_detail', kwargs={'pk': self.pk})
+
 
 class Publisher(models.Model):
     name = models.CharField(_('Name'), unique=True, max_length=64)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('books:publisher_detail', kwargs={'pk': self.pk})
 
 
 class Book(models.Model):

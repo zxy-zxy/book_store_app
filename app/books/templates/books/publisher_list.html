@@ -7,12 +7,14 @@
         <thead>
         <tr>
             <th>Name</th>
+            <th>Link</th>
         </tr>
         </thead>
         <tbody>
         {% for publisher in publisher_list %}
             <tr>
                 <td>{{ publisher.name }}</td>
+                <td><a href="{{ publisher.get_absolute_url }}">Detail</a></td>
             </tr>
         {% endfor %}
         </tbody>

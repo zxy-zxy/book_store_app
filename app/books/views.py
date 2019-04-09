@@ -30,6 +30,12 @@ class AuthorListView(ListView):
     paginate_by = 10
 
 
+class AuthorDetailView(DetailView):
+    model = Author
+    template_name = 'books/author_detail.html'
+    context_object_name = 'author'
+
+
 class PublisherListView(ListView):
     model = Publisher
     context_object_name = 'publisher_list'
@@ -37,11 +43,24 @@ class PublisherListView(ListView):
     paginate_by = 10
 
 
+class PublisherDetailView(DetailView):
+    model = Publisher
+    context_object_name = 'publisher'
+    template_name = 'books/publisher_detail.html'
+
+
 class BookListView(ListView):
     model = Book
     template_name = 'books/book_list.html'
     context_object_name = 'book_list'
     paginate_by = 3
+
+    def get_queryset(self, **kwargs):
+        query = self.request.GET.get('q', None)
+        if query is None:
+            return super().get_queryset(**kwargs)
+        qs = Book.objects.search(query)
+        return qs
 
 
 class BookDetailView(DetailView):
@@ -126,8 +145,3 @@ class BookDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
             return super(BookDeleteView, self).get(request, *args, **kwargs)
         except self.model.DoesNotExist:
             return redirect('books:book_list')
-
-
-class SearchView(View):
-    def get(self, request, *args, **kwargs):
-        return redirect(reverse_lazy('books:book_list'))

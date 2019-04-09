@@ -8,6 +8,7 @@
             <th>First name</th>
             <th>Last name</th>
             <th>Date of birth</th>
+            <th>Link</th>
         </tr>
         </thead>
         <tbody>
@@ -16,6 +17,7 @@
                 <td>{{ author.first_name }}</td>
                 <td>{{ author.last_name }}</td>
                 <td>{{ author.date_of_birth }}</td>
+                <td><a href="{{ author.get_absolute_url }}">Detail</a></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -24,3 +26,4 @@
     {% include 'includes/pagination.html' %}
 
 {% endblock %}
+
