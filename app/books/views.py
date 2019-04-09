@@ -5,6 +5,7 @@ from django.views.generic import (
     CreateView,
     UpdateView,
     DeleteView,
+    TemplateView,
 )
 from django.core.exceptions import ImproperlyConfigured
 from django.http import Http404
@@ -16,6 +17,24 @@ from django.contrib import messages
 
 from .models import Book, Publisher, Author
 from .forms import BookForm
+
+
+class HomePageView(TemplateView):
+    template_name = 'home.html'
+
+
+class AuthorListView(ListView):
+    model = Author
+    context_object_name = 'author_list'
+    template_name = 'books/author_list.html'
+    paginate_by = 10
+
+
+class PublisherListView(ListView):
+    model = Publisher
+    context_object_name = 'publisher_list'
+    template_name = 'books/publisher_list.html'
+    paginate_by = 10
 
 
 class BookListView(ListView):

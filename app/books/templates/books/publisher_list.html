@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <table class="table table-stripped">
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for publisher in publisher_list %}
+            <tr>
+                <td>{{ publisher.name }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include 'includes/pagination.html' %}
+
+{% endblock %}

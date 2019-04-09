@@ -15,19 +15,10 @@ class BooksListViewTest(TestCase):
         response = self.client.get(reverse('books:book_list'))
         self.assertTemplateUsed(response, 'books/book_list.html')
 
-    def test_home_page_renders_correct_html(self):
-        response = self.client.get('/')
-        self.assertTemplateUsed(response, 'books/book_list.html')
-
     def test_book_list_contains_create_new_book_url(self):
-        respone = self.client.get('/')
+        respone = self.client.get(reverse('books:book_list'))
         create_new_book_url = reverse('books:book_create')
         self.assertContains(respone, create_new_book_url)
-
-    def test_book_list_contains_book(self):
-        book = Book.objects.first()
-        response = self.client.get('/')
-        self.assertContains(response, book.title)
 
 
 class BookDetailViewTest(TestCase):

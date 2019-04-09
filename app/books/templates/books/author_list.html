@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <table class="table table-stripped">
+        <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Date of birth</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for author in author_list %}
+            <tr>
+                <td>{{ author.first_name }}</td>
+                <td>{{ author.last_name }}</td>
+                <td>{{ author.date_of_birth }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include 'includes/pagination.html' %}
+
+{% endblock %}
